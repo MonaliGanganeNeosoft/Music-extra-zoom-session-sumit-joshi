@@ -1,0 +1,93 @@
+--> Angular :- Javascript Framework 
+  -> Used to develop UI 
+  -> Create SPA 
+  -> Maintained by google 
+  -> Component Based Archirecture 
+  --> Environmental Setup 
+     -> Node js environment 
+       -> Downlaod and install node js 
+          version >14.0 
+         When we install node npm is install with it 
+        -> npm : node package manager (all 3rd party package are download and install with npm )
+     -> We need angular cli (command line interface) (ng :- new generate)
+     -> Install angular cli 
+       npm install @angular/cli --g 
+       -> to check cli is install or not 
+         ng 
+    -> How we create angular app 
+      ng new appname
+    -> How we run angular app 
+       -> open app folder in cmd|terminal 
+         ng serve --o (angular app is open in default browser in port 4200)
+         ng server --port 4201 --o 
+        --> How angular application is boot (execute)
+    index.html 
+  <app-root></app-root>
+     ----> src/main.ts (main entry point file) ---> boot default module (AppModule)src/app/app.module.ts ---> boot --> default component (AppComponent) src/app/app.component.ts 
+       selector:'app-root',
+    templateURL:'app.component.html'
+
+    --> components :- are the core building block of the angular app. They used for reuability. Every component have their own design (html) and logic(.ts)
+      -> How we create components 
+        ng g c componentname
+            componentname(folder)
+               .ts 
+               .html 
+               .css 
+               .spec.ts (testing)
+            Autoupdate in AppModule 
+             selector:'app-componentname'
+            -> to call a component in another component we have 
+            <app-componentname></app-componentname>
+        -> Design 
+        Home  About  Gallery Services 
+        <div>
+           //load all dynamic components when page is load
+        </div>
+        -> Routing :- It is a process for navigate between multiple pages into a single page. With the help of routing we can develop SPA only.
+          -> default :- app-routing.module.ts 
+            RouterModule :- to load all routes 
+            Routes :- we define path 
+            hyperlink :- routerLink 
+            <router-outlet></router-outlet> :- It is a container where dynamic components are load when a URL is match with the Routes 
+        -> Dynamic Data Binding 
+           -> {{ }} :- expression 
+           -> If we want to render array or object 
+             *ngFor 
+           -> Event Binding () 
+           <button (click)="abc()"> Click Here </button>
+           -> Property Binding []
+           .ts 
+           imageURL="--"
+           .html 
+           <img [src]="imageURL" />
+           -> 2 way data binding :- combination of Property and Event Binding [()]
+             -> ngModel and we use this with the help of FormsModule 
+              -> 1st load FormsModule in AppModule 
+                app.module.ts 
+                import {FormsModule} from '@angular/forms';
+                imports:[FormsModule]
+          -> Crud :- 
+           c :- create (post)
+           r : read (get)
+           u : update (put)
+           d : delete (delete)
+          -> Json-server :- It give us all rest APIs in behalf of the json file in very less period of time.(node module)
+             -> npm install json-server --g 
+               -> server 
+                  -> products.json 
+                  {
+                     "products":[
+                        {"id":101,"pname":"A","price":2345,"quantity":4},
+                        {"id":102,"pname":"B","price":3345,"quantity":5},
+                        {"id":103,"pname":"C","price":4345,"quantity":6}
+                     ]
+                  }
+                  -> open server folder in terminal or cmd 
+                   json-server --watch products.json --port 3001 
+
+                    http://localhost:3001/products 
+              -> Test APis  (Postman)
+              -> HttpClientModule (we load this module in AppModule)
+                -> In that module there is HttpClient service 
+                     -> get , post , put , delete 

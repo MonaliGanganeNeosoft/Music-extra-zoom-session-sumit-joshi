@@ -1,0 +1,42 @@
+-> React Native :- It is an open-source framework for building mobile application( Android and iOS applications). We can use Javascript to access our app platforms APIs as well as to describe the UI using React Components.
+
+  React Js :- Web application
+
+  React Native :- Mobile Application 
+
+     -> All concepts of react js is used in react native 
+      components , state , props , hooks , redux etc 
+      https://reactnative.dev/
+    -> Environmental Setup 
+       -> Node js environment 
+         Download and install node js in sytem 
+         https://nodejs.org/en/download/ 
+           node -v 
+           npm (node package manager) :- we can download and install all node packages 
+          -> expo cli 
+          -> react native cli 
+
+           -> expo cli 
+              -> How we create react native app 
+              npx create-expo-app AppName
+              -> How we run app 
+               cd AppName 
+               npm start 
+           ->  react native cli 
+             npx react-native init AppName
+               -> How we run app 
+                cd AppName 
+                npx react-native start
+                npx react-native run-android
+              Home.js 
+              import { View, Text } from 'react-native'
+import React from 'react'
+
+export default function Home() {
+  return (
+    <View>
+      <Text>Home Screen</Text>
+    </View>
+  )
+}
+  
